@@ -1,5 +1,8 @@
 close all; clear all; %clc;
 
+%%% change this parameter to have different trajectories %%%
+Xd = [0; 0; -0.1]; %traveling plate velocity
+
 Ra = 0.5; %distance to motor on base plate
 Rb = 0.25; %distance to forearme connection on traveling plate
 R = Ra - Rb; %difference between base plate and traveling plae
@@ -15,7 +18,6 @@ q = zeros(3,n_total); %joint angles
 q(:,1) = [0*pi/180 0*pi/180 0*pi/180]; %initial angle
 
 X = zeros(3,n_total); %traveling plate position
-Xd = [0; 0; -0.1]; %traveling plate velocity
 
 R_t = zeros(3,3,3); %motor rotation matrix
 r_t = zeros(3,3,3); %rotation matrix for drawing the base plate
