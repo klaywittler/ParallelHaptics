@@ -38,9 +38,9 @@ if(x2==0), result=[nan;nan;nan]; return; end
 x = 1/2*(r1^2+x2^2-2*y*y2+y2^2-2*z*z2+z2^2-r2^2)/x2;
 %% convert result back to global
 result=[x1;y1;z1]+[x;y;z];
-% % disp([x1 y1 z1 x2+x1 y2+y1 z2+z1 x3+x1 y3+y1 z3+z1]);
-% disp('Solution'); disp(result');
-% disp('Constraints'); % check distances to three centers
-% disp((result(1)-X1(1))^2+(result(2)-X1(2))^2+(result(3)-X1(3))^2-r1^2);
-% disp((result(1)-X2(1))^2+(result(2)-X2(2))^2+(result(3)-X2(3))^2-r2^2);
-% disp((result(1)-X3(1))^2+(result(2)-X3(2))^2+(result(3)-X3(3))^2-r3^2);
+% disp([x1 y1 z1 x2+x1 y2+y1 z2+z1 x3+x1 y3+y1 z3+z1]);
+disp('Solution'); disp(result');
+disp('Constraints'); % check distances to three centers
+disp((result(1)-X1(1))^2+(result(2)-X1(2))^2+(result(3)-X1(3))^2-r1^2);
+disp((result(1)-X2(1))^2+(result(2)-X2(2))^2+(result(3)-X2(3))^2-r2^2);
+disp((result(1)-X3(1))^2+(result(2)-X3(2))^2+(result(3)-X3(3))^2-r3^2);
