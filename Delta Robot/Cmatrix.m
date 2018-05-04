@@ -6,9 +6,7 @@ function [ C ] = Cmatrix( u )
     qd = u(7:9);
     dX = u(10:12);
     
-    U = [q;X];
-    
-    J = deltaJacobian(U);
+    J = deltaJacobian([q;X]);
     dJ = derivative_deltaJacobian(u);
     
     mPay = 1; %mass of payload

@@ -12,7 +12,7 @@ function [Gx,Gy,Gz] = Gmatrix( u )
     La = 1; %length of the arm
     Lb = (La + R)*sqrt(2); %length of the forearm
     
-    mPay = 1; %mass of payload
+    mPay = 0; %mass of payload
     mn = 1; %mass of the traveling plae
     mfb = 1; %mass of the forearm
     mb = 1; %mass of the arm
@@ -25,7 +25,7 @@ function [Gx,Gy,Gz] = Gmatrix( u )
 
     Tgn = J'*mnt*[0; 0; -g];
     Gb = mbr*g;
-    Tgb = rGb*Gb*[q(1); q(2); q(3)];
+    Tgb = rGb*Gb*[cos(q(1)); cos(q(2)); cos(q(3))];
 
     G = Tgn + Tgb;
     Gx = G(1);

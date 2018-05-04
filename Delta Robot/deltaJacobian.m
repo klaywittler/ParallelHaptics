@@ -36,6 +36,6 @@ function [J] = deltaJacobian(u)
     end
 
     % Jacobian
-    J = [s(:,1)'; s(:,2)'; s(:,3)']\diag([s(:,1)'*b(:,1) s(:,2)'*b(:,2) s(:,3)'*b(:,3)]);
+    J = s'\diag([s(:,1)'*b(:,1) s(:,2)'*b(:,2) s(:,3)'*b(:,3)]);
 end
 
