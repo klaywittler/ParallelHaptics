@@ -37,12 +37,12 @@ function [dJ] = derivative_deltaJacobian(u)
     for i = 1:3
         b(:,i) = R_t(:,:,i)*[La*sin(q(i)); 0; -La*cos(q(i))];
         s(:,i) = X - R_t(:,:,i)*([R;0;0] + [La*cos(q(i)); 0; -La*sin(q(i))]);
-        db(:,i) = R_t(:,:,i)*[La*cos(q(i))*qd(i); 0 ; La*sin(q(i))*qd(i)];
-        ds(:,i) = dX - R_t(:,:,i)*[-La*sin(q(i)); 0; -La*cos(q(i))];
+        db(:,i) = R_t(:,:,i)*[La*cos(q(i)); 0 ; La*sin(q(i))]*qd(i);
+        ds(:,i) = dX - R_t(:,:,i)*[-La*sin(q(i)); 0; -La*cos(q(i))]*qd(i);
     end
     
     % Jacobian
-    J = deltaJacobian([q;X]);%-[s(:,1)'; s(:,2)'; s(:,3)']\diag([s(:,1)'*b(:,1) s(:,2)'*b(:,2) s(:,3)'*b(:,3)]);
+    J = deltaJacobian([q;X]);
     dJ = [s(:,1)'; s(:,2)'; s(:,3)']\(-[ds(:,1)'; ds(:,2)'; ds(:,3)']*J + diag([ds(:,1)'*b(:,1)+s(:,1)'*db(:,1) ds(:,2)'*b(:,2)+s(:,2)'*db(:,2) ds(:,3)'*b(:,3)+s(:,3)'*db(:,3)]));
 
 end
