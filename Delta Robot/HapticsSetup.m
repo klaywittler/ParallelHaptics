@@ -36,3 +36,4 @@ end
 x0 = interx(p(:,1),p(:,2),p(:,3),Lb,Lb,Lb,0);
 
 xd0 = [0;0;0];
+qd0 = inv(deltaJacobian([q0;x0]))*xd0;
