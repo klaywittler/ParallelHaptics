@@ -35,14 +35,10 @@ function [dJ1] = derivative_deltaInvJacobian(u)
 
     % create kinematic chain 
     for i = 1:3
-%         b(:,i) = R_t(:,:,i)*[La*sin(q(i)); 0; -La*cos(q(i))];
-%         s(:,i) = X - (R_t(:,:,i)*[R;0;0] + b(:,i));
-%         db(:,i) = R_t(:,:,i)*[La*cos(q(i))*qd(i); 0 ; La*sin(q(i))*qd(i)];
-%         ds(:,i) = dX - db(:,i);
         b(:,i) = R_t(:,:,i)*[La*sin(q(i)); 0; -La*cos(q(i))];
         s(:,i) = X - R_t(:,:,i)*([R;0;0] + [La*cos(q(i)); 0; -La*sin(q(i))]);
-        db(:,i) = R_t(:,:,i)*[La*cos(q(i))*qd(i); 0 ; La*sin(q(i))*qd(i)];
-        ds(:,i) = dX - R_t(:,:,i)*[-La*sin(q(i))*qd(i); 0; -La*cos(q(i))*qd(i)];
+        db(:,i) = R_t(:,:,i)*[La*cos(q(i)); 0 ; La*sin(q(i))]*qd(i);
+        ds(:,i) = dX - R_t(:,:,i)*[-La*sin(q(i)); 0; -La*cos(q(i))]*qd(i);
     end
     
     % Jacobian
