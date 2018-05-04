@@ -6,7 +6,7 @@ function [J] = deltaJacobian(u)
 
     Ra = 0.5; %distance to motor on base plate
     Rb = 0.25; %distance to forearme connection on traveling plate
-    R = Ra - Rb; %difference between base plate and traveling plae
+    R = Ra - Rb; %difference between base plate and traveling plate
     La = 1; %length of the arm
     Lb = (La + R)*sqrt(2); %length of the forearm
     
@@ -31,8 +31,6 @@ function [J] = deltaJacobian(u)
 
     % create kinematic chain 
     for i = 1:3
-%         b(:,i) = R_t(:,:,i)*[La*cos(q(i)); 0; -La*sin(q(i))];
-%         s(:,i) = X - (R_t(:,:,i)*[R;0;0] + b(:,i));
         b(:,i) = R_t(:,:,i)*[La*sin(q(i)); 0; -La*cos(q(i))];
         s(:,i) = X - R_t(:,:,i)*([R;0;0] + [La*cos(q(i)); 0; -La*sin(q(i))]);
     end
