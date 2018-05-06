@@ -1,4 +1,4 @@
-function [ Gx,Gy,Gz ] = Gxmatrix( u )
+function [G] = Gxmatrix( u )
 %UNTITLED3 Summary of this function goes here
 %   Detailed explanation goes here
     q = u(1:3);
@@ -25,12 +25,9 @@ function [ Gx,Gy,Gz ] = Gxmatrix( u )
 
     Tgn = J'*mnt*[0; 0; -g];
     Gb = mbr*g;
-    Tgb = rGb*Gb*[q(1); q(2); q(3)];
+    Tgb = rGb*Gb*[cos(q(1)); cos(q(2)); cos(q(3))];
 
     Gq = Tgn + Tgb;
     G = (J^-1)'*Gq;
-    Gx = G(1);
-    Gy = G(2);
-    Gz = G(3);
 end
 

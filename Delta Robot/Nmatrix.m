@@ -22,6 +22,4 @@ function [ N ] = Nmatrix( u )
     C = J'*mnt*dJ;
     A = Amatrix([q;X]);
     N = (J^-1)'*C*qd - (J^-1)'*A*(J^-1)*dJ*qd;
-
 end
-

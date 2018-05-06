@@ -1,4 +1,4 @@
-function [Gx,Gy,Gz] = Gmatrix( u )
+function [G] = Gmatrix( u )
 %UNTITLED3 Summary of this function goes here
 %   Detailed explanation goes here
     q = u(1:3);
@@ -28,8 +28,8 @@ function [Gx,Gy,Gz] = Gmatrix( u )
     Tgb = rGb*Gb*[cos(q(1)); cos(q(2)); cos(q(3))];
 
     G = Tgn + Tgb;
-    Gx = G(1);
-    Gy = G(2);
-    Gz = G(3);
+%     Gx = G(1);
+%     Gy = G(2);
+%     Gz = G(3);
 end
 
