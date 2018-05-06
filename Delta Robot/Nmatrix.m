@@ -20,6 +20,6 @@ function [ N ] = Nmatrix( u )
     mnt = mn + 3*(1-r)*mfb + mPay;
     
     C = J'*mnt*dJ;
-    A = Amatrix([q;X]);
-    N = (J^-1)'*C*qd - (J^-1)'*A*(J^-1)*dJ*qd;
+    A = Mmatrix([q;X]);
+    N = (J')^(-1)*C*qd - A*dJ*qd;
 end

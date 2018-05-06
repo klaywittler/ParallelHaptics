@@ -12,7 +12,7 @@ function [G] = Gmatrix( u )
     La = 1; %length of the arm
     Lb = (La + R)*sqrt(2); %length of the forearm
     
-    mPay = 0; %mass of payload
+    mPay = 1; %mass of payload
     mn = 1; %mass of the traveling plae
     mfb = 1; %mass of the forearm
     mb = 1; %mass of the arm

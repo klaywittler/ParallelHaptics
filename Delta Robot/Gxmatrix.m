@@ -28,6 +28,6 @@ function [G] = Gxmatrix( u )
     Tgb = rGb*Gb*[cos(q(1)); cos(q(2)); cos(q(3))];
 
     Gq = Tgn + Tgb;
-    G = (J^-1)'*Gq;
+    G = (J')^(-1)*Gq;
 end
 

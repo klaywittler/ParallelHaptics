@@ -24,6 +24,6 @@ function [ M ] = Mmatrix( u )
     Ib = diag([Ibi Ibi Ibi]);
     
     Aq = Ib + mnt*(J'*J);
-    M = (J^-1)'*Aq*(J^-1);
+    M = (J')^(-1)*Aq*(J^-1);
 end
 
