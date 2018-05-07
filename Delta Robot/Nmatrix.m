@@ -11,7 +11,7 @@ function [ N ] = Nmatrix( u )
     J = deltaJacobian(U);
     dJ = derivative_deltaJacobian(u);
     
-    mPay = 0; %mass of payload
+    mPay = 1; %mass of payload
     mn = 1; %mass of the traveling plae
     mfb = 1; %mass of the forearm
 

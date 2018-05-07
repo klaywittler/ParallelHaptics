@@ -16,7 +16,7 @@
     end
 
 % Ground Contact Model
-K_e = 10000000;    % Object Stiffness, [N/m] or [Nm/rad]
+K_e = 100000;    % Object Stiffness, [N/m] or [Nm/rad]
 B_e = 50;    % Object Damping,   [Ns/m] or [Nms/rad]
 
 % Delta Robot

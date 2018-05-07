@@ -24,10 +24,10 @@ function [G] = Gxmatrix( u )
     rGb = La*(0.5*mb + mc + r*mfb)/mbr;
 
     Tgn = J'*mnt*[0; 0; -g];
-    Gb = mbr*g;
+    Gb = -mbr*g;
     Tgb = rGb*Gb*[cos(q(1)); cos(q(2)); cos(q(3))];
 
-    Gq = Tgn + Tgb;
+    Gq = (Tgn + Tgb);
     G = (J')^(-1)*Gq;
 end
 
